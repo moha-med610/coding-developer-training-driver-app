@@ -18,6 +18,9 @@ dependencies:
   dio: ^5.9.2
   # Handle Errors
   dartz: ^0.10.1
+  # This Package for Svg Images
+  flutter_svg: ^2.2.4
+
 
 dev_dependencies:
   flutter_test:
@@ -29,7 +32,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/svgs/
+    - assets/images/
+    - assets/icons/
 
   # fonts:
   #   - family: Schyler
