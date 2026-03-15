@@ -1,3 +1,3 @@
 class SecureKeys {
-  static final String isLoggedIn = "is_logged_in";
+  static final String accessToken = "access_token";
 }

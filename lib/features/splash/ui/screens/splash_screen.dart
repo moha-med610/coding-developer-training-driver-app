@@ -4,8 +4,10 @@ import 'package:coding_developer_driver_app/core/extensions/navigate_extension.d
 import 'package:coding_developer_driver_app/core/routes/app_routes.dart';
 import 'package:coding_developer_driver_app/core/services/secure_storage_service.dart';
 import 'package:coding_developer_driver_app/core/services/shared_pref_service.dart';
+import 'package:coding_developer_driver_app/core/theming/colors.dart';
+import 'package:coding_developer_driver_app/features/splash/ui/widgets/loading_splash_widget.dart';
+import 'package:coding_developer_driver_app/features/splash/ui/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
         SharedPrefService.getBool(SharedPrefKeys.isFirstTime) ?? true;
 
     final String? isLoggedIn = await SecureStorageService().read(
-      key: SecureKeys.isLoggedIn,
+      key: SecureKeys.accessToken,
     );
     if (isFirstTime) {
       context.navigateRouteNamedAndReplace(AppRoutes.onboardingScreen);
@@ -42,25 +44,29 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.redAccent,
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Fast Delivery",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+      backgroundColor: AppColors.primaryColor,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Container(
+              width: double.infinity,
+              height: double.infinity / 0.5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Spacer(),
+                  LogoWidget(),
+                  Spacer(),
+                  LoadingSplashWidget(),
+                  Spacer(),
+                ],
               ),
             ),
-            SizedBox(width: 10),
-            SvgPicture.asset("assets/svgs/truck.svg"),
-          ],
+          ),
         ),
       ),
     );
