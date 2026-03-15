@@ -22,6 +22,8 @@ dependencies:
   flutter_svg: ^2.2.4
   # Loading Animation
   loading_animation_widget: ^1.3.0
+  # State Management
+  flutter_bloc: ^9.1.1
 
 
 dev_dependencies:
