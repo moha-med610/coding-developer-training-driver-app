@@ -26,13 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigate() async {
     await Future.delayed(Duration(seconds: 2));
 
-    final bool isFirstTime =
-        SharedPrefService.getBool(SharedPrefKeys.isFirstTime) ?? true;
+    final String? isFirstTime = SharedPrefService.getString(
+      SharedPrefKeys.language,
+    );
 
     final String? isLoggedIn = await SecureStorageService().read(
       key: SecureKeys.accessToken,
     );
-    if (isFirstTime) {
+    if (isFirstTime == null) {
       context.navigateRouteNamedAndReplace(AppRoutes.onboardingScreen);
     } else if (isLoggedIn != null) {
       context.navigateRouteNamedAndReplace(AppRoutes.homeScreen);
