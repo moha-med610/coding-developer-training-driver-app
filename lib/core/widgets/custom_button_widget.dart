@@ -13,6 +13,7 @@ class CustomButtonWidget extends StatelessWidget {
     this.fontWeight = FontWeight.w800,
     this.fontSize = 17,
     this.padding = const EdgeInsets.all(8.0),
+    this.hasLoading = false,
   });
 
   final VoidCallback onTap;
@@ -25,6 +26,7 @@ class CustomButtonWidget extends StatelessWidget {
   final FontWeight fontWeight;
   final double fontSize;
   final EdgeInsets padding;
+  final bool hasLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +40,26 @@ class CustomButtonWidget extends StatelessWidget {
           color: buttonColor,
           borderRadius: BorderRadius.circular(radius),
         ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontSize: fontSize,
-          ),
-          textAlign: TextAlign.center,
-        ),
+        child: hasLoading
+            ? Center(
+                child: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: const CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2,
+                  ),
+                ),
+              )
+            : Text(
+                label,
+                style: TextStyle(
+                  color: textColor,
+                  fontWeight: fontWeight,
+                  fontSize: fontSize,
+                ),
+                textAlign: TextAlign.center,
+              ),
       ),
     );
   }
