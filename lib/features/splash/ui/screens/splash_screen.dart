@@ -33,6 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
     final String? isLoggedIn = await SecureStorageService().read(
       key: SecureKeys.accessToken,
     );
+
+    if (!mounted) return;
     if (isFirstTime == null) {
       context.navigateRouteNamedAndReplace(AppRoutes.onboardingScreen);
     } else if (isLoggedIn != null) {
