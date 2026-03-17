@@ -1,6 +1,8 @@
+import 'package:coding_developer_driver_app/core/extensions/navigate_extension.dart';
 import 'package:coding_developer_driver_app/core/theming/colors.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_button_widget.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_text_form_field.dart';
+import 'package:coding_developer_driver_app/features/auth/ui/screens/register_screen.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/custom_login_or_register.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/header_widget.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/login_form.dart';
@@ -9,6 +11,8 @@ import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +25,18 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 100),
-                HeaderWidget(),
+                HeaderWidget(title: "Login"),
                 SizedBox(height: 50),
-                LoginForm(),
+                Form(key: _formKey, child: LoginForm()),
                 SizedBox(height: 5),
                 CustomButtonWidget(
                   onTap: () {
-                    print("login");
+                    // TODO: Login Logic
+                    if (_formKey.currentState!.validate()) {
+                      print("Login Success");
+                    } else {
+                      print("Login Failed");
+                    }
                   },
                   label: "Login",
                   buttonColor: AppColors.primaryColor,
@@ -36,6 +45,9 @@ class LoginScreen extends StatelessWidget {
                 CustomLoginOrRegister(
                   askForAccount: "Don't Have An Account?",
                   answer: "Register",
+                  onTap: () {
+                    context.navigateTo(RegisterScreen());
+                  },
                 ),
               ],
             ),
