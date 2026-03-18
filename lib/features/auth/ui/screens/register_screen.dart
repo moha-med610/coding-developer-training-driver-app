@@ -1,12 +1,12 @@
+import 'package:coding_developer_driver_app/core/controllers/ui_cubit.dart';
 import 'package:coding_developer_driver_app/core/extensions/navigate_extension.dart';
 import 'package:coding_developer_driver_app/core/theming/colors.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_button_widget.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/controllers/auth_cubit.dart';
-import 'package:coding_developer_driver_app/features/auth/ui/controllers/ui_cubit.dart';
-import 'package:coding_developer_driver_app/features/auth/ui/screens/login_screen.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/custom_login_or_register.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/header_widget.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/register_form.dart';
+import 'package:coding_developer_driver_app/features/user_status/ui/screens/pending_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,6 +39,7 @@ class RegisterScreen extends StatelessWidget {
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
                         print("Register Success");
+                        context.navigateAndRemoveUntil(PendingScreen());
                       } else {
                         print("Register Failed");
                       }
