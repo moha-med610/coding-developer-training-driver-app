@@ -30,6 +30,8 @@ dependencies:
   get_it: ^9.2.1
   # Image Picker
   image_picker: ^1.2.1
+  # Animated icons
+  lottie: ^3.3.2
 
 
 dev_dependencies:
@@ -45,6 +47,7 @@ flutter:
     - assets/svgs/
     - assets/images/
     - assets/icons/
+    - assets/lottie/
 
   # fonts:
   #   - family: Schyler
