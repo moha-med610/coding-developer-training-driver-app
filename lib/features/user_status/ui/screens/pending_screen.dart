@@ -20,7 +20,6 @@ class PendingScreen extends StatelessWidget {
           descriptionStyle: Theme.of(
             context,
           ).primaryTextTheme.labelSmall!.copyWith(fontSize: 14),
-          // TODO: replace this icon
           path: "assets/lottie/pending.json",
           title: "Pending",
           description:

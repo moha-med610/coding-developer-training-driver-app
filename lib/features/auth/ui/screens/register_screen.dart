@@ -9,9 +9,7 @@ import 'package:coding_developer_driver_app/features/auth/ui/widgets/custom_logi
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/header_widget.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/register_form.dart';
 import 'package:coding_developer_driver_app/features/home/ui/screens/home_screen.dart';
-import 'package:coding_developer_driver_app/features/user_status/ui/screens/block_screen.dart';
 import 'package:coding_developer_driver_app/features/user_status/ui/screens/pending_screen.dart';
-import 'package:coding_developer_driver_app/features/user_status/ui/screens/reject_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,10 +50,6 @@ class RegisterScreen extends StatelessWidget {
                           );
                         } else if (user == UserStatus.approved) {
                           context.navigateAndRemoveUntil(HomeScreen());
-                        } else if (user == UserStatus.blocked) {
-                          context.navigateAndRemoveUntil(BlockScreen());
-                        } else if (user == UserStatus.reject) {
-                          context.navigateAndRemoveUntil(RejectScreen());
                         }
                       } else {
                         print("Register Failed");
