@@ -1,5 +1,6 @@
 import 'package:coding_developer_driver_app/core/constants/user_status.dart';
 import 'package:coding_developer_driver_app/core/controllers/ui_cubit.dart';
+import 'package:coding_developer_driver_app/core/extensions/locale_extension.dart';
 import 'package:coding_developer_driver_app/core/extensions/navigate_extension.dart';
 import 'package:coding_developer_driver_app/core/theming/colors.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_button_widget.dart';
@@ -18,7 +19,7 @@ class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final String user = UserStatus.reject;
+  final String user = UserStatus.pending;
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +36,7 @@ class RegisterScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 100),
-                  HeaderWidget(title: "Register"),
+                  HeaderWidget(path: "assets/lottie/login.json"),
                   SizedBox(height: 50),
                   Form(key: _formKey, child: RegisterForm()),
                   SizedBox(height: 30),
@@ -61,13 +61,13 @@ class RegisterScreen extends StatelessWidget {
                         print("Register Failed");
                       }
                     },
-                    label: "Register",
+                    label: context.tr.register,
                     buttonColor: AppColors.primaryColor,
                   ),
                   SizedBox(height: 50),
                   CustomLoginOrRegister(
-                    askForAccount: "Already Have An Account?",
-                    answer: "Login",
+                    askForAccount: context.tr.alreadyHaveAccount,
+                    answer: context.tr.login,
                     onTap: () {
                       context.pop(context);
                     },

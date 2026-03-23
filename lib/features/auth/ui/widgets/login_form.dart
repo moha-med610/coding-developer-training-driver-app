@@ -1,4 +1,5 @@
 import 'package:coding_developer_driver_app/core/controllers/ui_cubit.dart';
+import 'package:coding_developer_driver_app/core/extensions/locale_extension.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,15 +30,14 @@ class _LoginFormState extends State<LoginForm> {
           CustomTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "phone is required";
+                return context.tr.phoneRequired;
               }
-              ;
               return null;
             },
             prefix: Icon(Icons.phone),
             controller: phoneController,
             keyboardType: TextInputType.phone,
-            hint: "Phone",
+            hint: context.tr.phone,
           ),
           SizedBox(height: 15),
           BlocBuilder<UiCubit, UiState>(
@@ -45,9 +45,8 @@ class _LoginFormState extends State<LoginForm> {
               return CustomTextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "password is required";
+                    return context.tr.passwordRequired;
                   }
-                  ;
                   return null;
                 },
                 prefix: Icon(Icons.lock_outline),
@@ -62,7 +61,7 @@ class _LoginFormState extends State<LoginForm> {
                 obScureText: state.isObscure,
                 controller: passwordController,
                 keyboardType: TextInputType.visiblePassword,
-                hint: "Password",
+                hint: context.tr.password,
               );
             },
           ),
@@ -74,7 +73,7 @@ class _LoginFormState extends State<LoginForm> {
                 print("text button");
               },
               child: Text(
-                "Forget Password?",
+                context.tr.forgetPassword,
                 style: Theme.of(context).primaryTextTheme.labelSmall,
               ),
             ),

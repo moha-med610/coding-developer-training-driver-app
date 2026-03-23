@@ -1,4 +1,5 @@
 import 'package:coding_developer_driver_app/core/controllers/ui_cubit.dart';
+import 'package:coding_developer_driver_app/core/extensions/locale_extension.dart';
 import 'package:coding_developer_driver_app/core/extensions/navigate_extension.dart';
 import 'package:coding_developer_driver_app/core/theming/colors.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_button_widget.dart';
@@ -30,8 +31,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 100),
-                  HeaderWidget(title: "Login"),
+                  HeaderWidget(path: "assets/lottie/login.json"),
                   SizedBox(height: 50),
                   Form(key: _formKey, child: LoginForm()),
                   SizedBox(height: 5),
@@ -44,13 +44,13 @@ class LoginScreen extends StatelessWidget {
                         print("Login Failed");
                       }
                     },
-                    label: "Login",
+                    label: context.tr.login,
                     buttonColor: AppColors.primaryColor,
                   ),
                   SizedBox(height: 50),
                   CustomLoginOrRegister(
-                    askForAccount: "Don't Have An Account?",
-                    answer: "Register",
+                    askForAccount: context.tr.haveAccount,
+                    answer: context.tr.register,
                     onTap: () {
                       context.navigateTo(RegisterScreen());
                     },

@@ -12,13 +12,15 @@ class PendingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: StatusWidget(
           titleStyle: Theme.of(context).primaryTextTheme.headlineLarge!
               .copyWith(color: Colors.green, fontSize: 30),
-          descriptionStyle: Theme.of(context).primaryTextTheme.labelSmall!,
+          descriptionStyle: Theme.of(
+            context,
+          ).primaryTextTheme.labelSmall!.copyWith(fontSize: 14),
+          // TODO: replace this icon
           path: "assets/lottie/pending.json",
           title: "Pending",
           description:

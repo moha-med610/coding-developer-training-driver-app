@@ -10,14 +10,14 @@ class BlockScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: StatusWidget(
-          titleStyle: Theme.of(
+          titleStyle: Theme.of(context).primaryTextTheme.headlineLarge!
+              .copyWith(color: Colors.red, fontSize: 30),
+          descriptionStyle: Theme.of(
             context,
-          ).primaryTextTheme.headlineLarge!.copyWith(color: Colors.red),
-          descriptionStyle: Theme.of(context).primaryTextTheme.labelSmall!,
+          ).primaryTextTheme.labelSmall!.copyWith(fontSize: 14),
           path: "assets/lottie/block.json",
           title: "Blocked",
           description:
