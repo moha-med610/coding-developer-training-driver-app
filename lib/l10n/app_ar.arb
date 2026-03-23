@@ -1,0 +1,29 @@
+{
+  "getStarted": "يلا بينا",
+
+  "haveAccount": "ليس لديك حساب؟",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟",
+
+  "register": "تسجيل",
+  "login": "تسجيل الدخول",
+
+  "phone": "رقم الهاتف",
+  "password": "كلمه المرور",
+  "fulName": "الاسم بالكامل",
+  "confirmPassword": "تأكيد كلمه المرور",
+  "vehicleBrand": "ماركه المركبه",
+  "vehicleNumber": "رقم المركبه",
+  "idFront": "بطاقه الهويه من الامام",
+  "idBack": "بطاقه الهويه من الخلف",
+  "driverLicence": "رخصه القياده",
+
+  "phoneRequired": "رقم الهاتف مطلوب",
+  "passwordRequired": "كلمه المرور مطلوبه",
+  "fullNameRequired": "الاسم بالكامل مطلوب",
+  "confirmPasswordRequired": "تأكيد كلمه المرور مطلوبه",
+  "vehicleBrandRequired": "ماركه المركبه مطلوبه",
+  "vehicleNumberRequired": "رقم المركبه مطلوب",
+  "passwordNotMatch": "كلمه المرور غير متطابقه",
+
+  "forgetPassword": "نسيت كلمه المرور؟"
+}

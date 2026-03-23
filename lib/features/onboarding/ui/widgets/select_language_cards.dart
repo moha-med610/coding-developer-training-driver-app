@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectLanguageCards extends StatelessWidget {
-  SelectLanguageCards({
+  const SelectLanguageCards({
     super.key,
     required this.onChange,
     required this.selectedLanguage,
@@ -23,13 +23,9 @@ class SelectLanguageCards extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              LanguageCard(lang: "العربيه", value: AppLanguage.ar.name),
-              LanguageCard(lang: "English", value: AppLanguage.en.name),
-            ],
-          ),
+          LanguageCard(lang: "العربيه", value: AppLanguage.ar.name),
+          SizedBox(height: 20),
+          LanguageCard(lang: "English", value: AppLanguage.en.name),
         ],
       ),
     );

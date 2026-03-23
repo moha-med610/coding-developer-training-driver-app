@@ -1,7 +1,7 @@
 import 'package:coding_developer_driver_app/core/theming/colors.dart';
-import 'package:coding_developer_driver_app/features/onboarding/ui/controllers/select_lang_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../controllers/select_lang_cubit.dart';
 
 class LanguageCard extends StatelessWidget {
   const LanguageCard({super.key, required this.lang, required this.value});
@@ -11,16 +11,17 @@ class LanguageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String selectedLanguage = context
-        .read<SelectLangCubit>()
-        .selectedLanguage;
-    final isSelected = selectedLanguage == value;
+    final locale = context.watch<SelectLangCubit>().state;
+    final isSelected = locale.languageCode == value;
+
     return GestureDetector(
       onTap: () {
-        context.read<SelectLangCubit>().changeLanguage(value);
+        context.read<SelectLangCubit>().changeLanguage(Locale(value));
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
+        alignment: Alignment.center,
+        width: double.infinity,
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primaryColor : Colors.white,
           borderRadius: BorderRadius.circular(12),

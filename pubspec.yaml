@@ -9,6 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
   cupertino_icons: ^1.0.8
   # Local Storage
   shared_preferences: ^2.5.4
@@ -32,6 +36,8 @@ dependencies:
   image_picker: ^1.2.1
   # Animated icons
   lottie: ^3.3.2
+  # This package for localization
+  intl: ^0.20.2
 
 
 dev_dependencies:
@@ -41,6 +47,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:

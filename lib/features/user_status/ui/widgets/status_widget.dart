@@ -1,3 +1,4 @@
+import 'package:coding_developer_driver_app/core/theming/colors.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -41,7 +42,11 @@ class StatusWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Spacer(),
-          CustomButtonWidget(onTap: onTap, label: buttonLabel),
+          CustomButtonWidget(
+            onTap: onTap,
+            label: buttonLabel,
+            buttonColor: AppColors.primaryColor,
+          ),
         ],
       ),
     );

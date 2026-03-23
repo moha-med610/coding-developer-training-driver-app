@@ -1,0 +1,30 @@
+{
+  "getStarted": "Get Started",
+  "haveAccount": "Don't Have Account?",
+  "alreadyHaveAccount": "Already Have Account?",
+
+  "register": "Register",
+  "login": "Login",
+
+  "phone": "Phone",
+  "password": "password",
+  "fulName": "Full Name",
+  "confirmPassword": "Confirm Password",
+  "vehicleBrand": "Vehicle Brand",
+  "vehicleNumber": "Vehicle Number",
+  "idFront": "ID Front",
+  "idBack": "ID Back",
+  "driverLicence": "Driver Licence",
+
+
+  "phoneRequired": "phone is required",
+  "passwordRequired": "password is required",
+  "fullNameRequired": "fullName is required",
+  "confirmPasswordRequired" :"confirm password is required",
+  "vehicleBrandRequired": "vehicle brand is required",
+  "vehicleNumberRequired": "vehicle number is required",
+  "passwordNotMatch": "Password not match",
+
+
+  "forgetPassword": "Forget Password?"
+}

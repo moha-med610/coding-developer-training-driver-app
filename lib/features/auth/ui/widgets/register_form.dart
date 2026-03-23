@@ -1,5 +1,6 @@
 import 'package:coding_developer_driver_app/core/constants/document_type.dart';
 import 'package:coding_developer_driver_app/core/controllers/ui_cubit.dart';
+import 'package:coding_developer_driver_app/core/extensions/locale_extension.dart';
 import 'package:coding_developer_driver_app/core/widgets/custom_text_form_field.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/controllers/auth_cubit.dart';
 import 'package:coding_developer_driver_app/features/auth/ui/widgets/document_widget.dart';
@@ -42,27 +43,27 @@ class _RegisterFormState extends State<RegisterForm> {
           CustomTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Full Name is required";
+                return context.tr.fullNameRequired;
               }
               return null;
             },
             prefix: Icon(Icons.person),
             controller: fullNameController,
             keyboardType: TextInputType.name,
-            hint: "Full Name",
+            hint: context.tr.fulName,
           ),
           SizedBox(height: 15),
           CustomTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Phone is required";
+                return context.tr.phoneRequired;
               }
               return null;
             },
             prefix: Icon(Icons.phone),
             controller: phoneController,
             keyboardType: TextInputType.phone,
-            hint: "Phone",
+            hint: context.tr.phone,
           ),
           SizedBox(height: 15),
           BlocBuilder<UiCubit, UiState>(
@@ -74,9 +75,9 @@ class _RegisterFormState extends State<RegisterForm> {
                   CustomTextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Password is required";
+                        return context.tr.passwordRequired;
                       } else if (value != confirmPasswordController.text) {
-                        return "Password not match";
+                        return context.tr.passwordNotMatch;
                       }
                       return null;
                     },
@@ -92,15 +93,15 @@ class _RegisterFormState extends State<RegisterForm> {
                     obScureText: isObscurePassword,
                     controller: passwordController,
                     keyboardType: TextInputType.visiblePassword,
-                    hint: "Password",
+                    hint: context.tr.password,
                   ),
                   SizedBox(height: 15),
                   CustomTextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Confirm Password is required";
+                        return context.tr.confirmPasswordRequired;
                       } else if (value != passwordController.text) {
-                        return "Password not match";
+                        return context.tr.passwordNotMatch;
                       }
                       return null;
                     },
@@ -116,7 +117,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     obScureText: isObscureConfirmPassword,
                     controller: confirmPasswordController,
                     keyboardType: TextInputType.visiblePassword,
-                    hint: "Confirm Password",
+                    hint: context.tr.confirmPassword,
                   ),
                 ],
               );
@@ -126,25 +127,25 @@ class _RegisterFormState extends State<RegisterForm> {
           CustomTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "vehicle brand is required";
+                return context.tr.vehicleBrandRequired;
               }
               return null;
             },
             controller: vehicleBrandController,
             keyboardType: TextInputType.text,
-            hint: "vehicle brand",
+            hint: context.tr.vehicleBrand,
           ),
           SizedBox(height: 15),
           CustomTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "vehicle number is required";
+                return context.tr.vehicleNumberRequired;
               }
               return null;
             },
             controller: vehicleNumberController,
             keyboardType: TextInputType.text,
-            hint: "Vehicle Number",
+            hint: context.tr.vehicleNumber,
           ),
           SizedBox(height: 15),
           BlocBuilder<AuthCubit, AuthState>(
@@ -153,7 +154,7 @@ class _RegisterFormState extends State<RegisterForm> {
               return Column(
                 children: [
                   DocumentWidget(
-                    title: "ID Front",
+                    title: context.tr.idFront,
                     onTap: () {
                       cubit.pickDocument(context, DocumentType.idFront);
                     },
@@ -162,7 +163,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   ImagePreview(file: state.idFront),
                   SizedBox(height: 15),
                   DocumentWidget(
-                    title: "ID Back",
+                    title: context.tr.idBack,
                     onTap: () {
                       cubit.pickDocument(context, DocumentType.idBack);
                     },
@@ -171,7 +172,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   ImagePreview(file: state.idBack),
                   SizedBox(height: 15),
                   DocumentWidget(
-                    title: "Driver Licence",
+                    title: context.tr.driverLicence,
                     onTap: () {
                       cubit.pickDocument(context, DocumentType.driverLicence);
                     },
